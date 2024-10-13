@@ -1,0 +1,56 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: joseant
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: api-starwars
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: api-starwars
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-west-1
+  profile: serverless
+  environment:
+    TABLE_NAME: ${self:service}-${opt:stage, 'dev'}-characters
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource: "arn:aws:dynamodb:${self:provider.region}:*:table/${self:service}-${opt:stage, 'dev'}-characters"
+
+plugins:
+  - serverless-offline
+  - serverless-openapi-documentation
+
+functions:
+  createCharacter:
+    handler: src/handlers/createCharacter.createCharacter
+    events:
+      - http:
+          path: character
+          method: post
+          cors: true
+
+  getCharacters:
+    handler: src/handlers/getCharacters.getCharacters
+    events:
+      - http:
+          path: characters
+          method: get
+          cors: true
+
+resources:
+  Resources:
+    CharactersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:service}-${opt:stage, 'dev'}-characters
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5

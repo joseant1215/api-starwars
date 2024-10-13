@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "bec6e679-9a81-48cf-ad41-548fabfb8d38",
+		"name": "API STARWARS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38705906"
+	},
+	"item": [
+		{
+			"name": "people",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.py4e.com/api/people/2",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"py4e",
+						"com"
+					],
+					"path": [
+						"api",
+						"people",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "character",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Luke Skywalker\", \r\n    \"height\": \"172\", \r\n    \"mass\": \"77\", \r\n    \"hair_color\": \"blond\", \r\n    \"skin_color\": \"fair\", \r\n    \"eye_color\": \"blue\", \r\n    \"birth_year\": \"19BBY\", \r\n    \"gender\": \"male\", \r\n    \"homeworld\": \"https://swapi.py4e.com/api/planets/1/\", \r\n    \"films\": [\r\n        \"https://swapi.py4e.com/api/films/1/\", \r\n        \"https://swapi.py4e.com/api/films/2/\", \r\n        \"https://swapi.py4e.com/api/films/3/\", \r\n        \"https://swapi.py4e.com/api/films/6/\", \r\n        \"https://swapi.py4e.com/api/films/7/\"\r\n    ], \r\n    \"species\": [\r\n        \"https://swapi.py4e.com/api/species/1/\"\r\n    ], \r\n    \"vehicles\": [\r\n        \"https://swapi.py4e.com/api/vehicles/14/\", \r\n        \"https://swapi.py4e.com/api/vehicles/30/\"\r\n    ], \r\n    \"starships\": [\r\n        \"https://swapi.py4e.com/api/starships/12/\", \r\n        \"https://swapi.py4e.com/api/starships/22/\"\r\n    ], \r\n    \"created\": \"2014-12-09T13:50:51.644000Z\", \r\n    \"edited\": \"2014-12-20T21:17:56.891000Z\", \r\n    \"url\": \"https://swapi.py4e.com/api/people/1/\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://yd8sawsp11.execute-api.eu-west-1.amazonaws.com/dev/character",
+					"protocol": "https",
+					"host": [
+						"yd8sawsp11",
+						"execute-api",
+						"eu-west-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"character"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://yd8sawsp11.execute-api.eu-west-1.amazonaws.com/dev/characters",
+					"protocol": "https",
+					"host": [
+						"yd8sawsp11",
+						"execute-api",
+						"eu-west-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"characters"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

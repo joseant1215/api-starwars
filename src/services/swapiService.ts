@@ -13,7 +13,7 @@ export interface SwapiCharacter {
     gender: string;
 }
 
-export const getCharacter = async (id: number): Promise<SwapiCharacter> => {
+export const getCharacterSwapi = async (id: number): Promise<SwapiCharacter> => {
     try {
         const response = await axios.get<SwapiCharacter>(`${SWAPI_BASE_URL}people/${id}`);
         return response.data;

@@ -1,7 +1,10 @@
-import { APIGatewayProxyHandler } from "aws-lambda";
+import { APIGatewayProxyHandler, APIGatewayProxyEvent, Context, APIGatewayProxyResult } from 'aws-lambda';
 import { getFromDatabase } from "../services/characterService";
 
-export const getCharacters: APIGatewayProxyHandler =  async () => {
+export const getCharacters: APIGatewayProxyHandler = async (
+    event: APIGatewayProxyEvent,
+    context: Context
+  ): Promise<APIGatewayProxyResult> => {
     try {
         const data = await getFromDatabase();
         return {
@@ -16,8 +19,8 @@ export const getCharacters: APIGatewayProxyHandler =  async () => {
             statusCode: 500,
             body: JSON.stringify({
                 message: 'Error al recuperar datos',
-                error
+                error: (error as Error).message, // Asegúrate de que el mensaje del error sea una cadena
             }),
-        }
+        };
     }
 };

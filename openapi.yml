@@ -1,0 +1,21 @@
+openapi: 3.0.0
+components:
+  schemas: {}
+  securitySchemes: {}
+info:
+  title: ''
+  description: ''
+  version: 2d27d1a9-2d43-44fd-acff-792cd0a806b6
+paths:
+  /character:
+    post:
+      operationId: createCharacter
+      summary: Crear un personaje
+      description: Crea un nuevo personaje en la base de datos
+      responses: {}
+  /characters:
+    get:
+      operationId: getCharacters
+      summary: Obtener todos los personajes
+      description: Recupera todos los personajes de la tabla de DynamoDB.
+      responses: {}

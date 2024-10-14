@@ -1,8 +1,6 @@
-import type { Config } from 'jest';
-
-const config: Config = {
+module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
-};
-
-export default config;
+    testMatch: ['**/src/**/*.test.ts'], // Ajusta el patrón según tu estructura
+  };
+  

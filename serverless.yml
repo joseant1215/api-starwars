@@ -35,42 +35,42 @@ functions:
           path: character
           method: post
           cors: true
-          # documentation:
-          #   summary: Crear un personaje
-          #   description: Crea un nuevo personaje en la base de datos
-          #   requestBody:
-          #     description: Datos del personaje
-          #     required: true
-          #     content:
-          #       application/json:
-          #         schema:
-          #           type: object
-          #           properties:
-          #             id:
-          #               type: integer
-          #               description: ID del personaje
-          #               example: 1
-          #   responses:
-          #     '201':
-          #       description: Personaje creado correctamente
-          #       content:
-          #         application/json:
-          #           schema:
-          #             type: object
-          #             properties:
-          #               message:
-          #                 type: string
-          #                 example: "Personaje creado con éxito"
-          #     '500':
-          #       description: Error al crear personaje
-          #       content:
-          #         application/json:
-          #           schema:
-          #             type: object
-          #             properties:
-          #               error:
-          #                 type: string
-          #                 example: "Error interno del servidor"
+          documentation:
+            summary: Crear un personaje
+            description: Crea un nuevo personaje en la base de datos
+            requestBody:
+              description: Datos del personaje
+              required: true
+              content:
+                application/json:
+                  schema:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        description: ID del personaje
+                        example: 1
+            responses:
+              '201':
+                description: Personaje creado correctamente
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        message:
+                          type: string
+                          example: "Personaje creado con éxito"
+              '500':
+                description: Error al crear personaje
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        error:
+                          type: string
+                          example: "Error interno del servidor"
 
   getCharacters:
     handler: src/handlers/getCharacters.getCharacters
@@ -79,40 +79,40 @@ functions:
           path: characters
           method: get
           cors: true
-          # documentation:
-          #   summary: "Obtener todos los personajes"
-          #   description: "Recupera todos los personajes de la tabla de DynamoDB."
-          #   responses:
-          #     '200':
-          #       description: "Se recuperó exitosamente la lista de personajes."
-          #       content:
-          #         application/json:
-          #           schema:
-          #             type: object
-          #             properties:
-          #               data:
-          #                 type: array
-          #                 items:
-          #                   type: object
-          #                   properties:
-          #                     id:
-          #                       type: string
-          #                       description: ID del personaje
-          #                       example: 1
-          #                     nombre:
-          #                       type: string
-          #                       description: Nombre del personaje
-          #                       example: "Luke Skywalker"     
-          #     '500':
-          #       description: "Error en el servidor"
-          #       content:
-          #         application/json:
-          #           schema:
-          #             type: object
-          #             properties:
-          #               error:
-          #                 type: string
-          #                 example: "Error interno del servidor"
+          documentation:
+            summary: "Obtener todos los personajes"
+            description: "Recupera todos los personajes de la tabla de DynamoDB."
+            responses:
+              '200':
+                description: "Se recuperó exitosamente la lista de personajes."
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        data:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: ID del personaje
+                                example: 1
+                              nombre:
+                                type: string
+                                description: Nombre del personaje
+                                example: "Luke Skywalker"     
+              '500':
+                description: "Error en el servidor"
+                content:
+                  application/json:
+                    schema:
+                      type: object
+                      properties:
+                        error:
+                          type: string
+                          example: "Error interno del servidor"
 
 resources:
   Resources:
